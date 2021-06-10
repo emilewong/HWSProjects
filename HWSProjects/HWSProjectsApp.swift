@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct HWSProjectsApp: App {
+    let persistenceController = PersistenceController.shared
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MyNavigationView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
+        
     }
 }
